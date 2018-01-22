@@ -58,8 +58,8 @@ def P(colID,attribute,C):#P(colName=attribute|C) P(色泽=青绿|是)
     return ans
 
 def predictOne(single):
-    ansYes=math.log2(len(goodList)/len(y))
-    ansNo=math.log2(len(badList)/len(y))
+    ansYes=math.log2((len(goodList)+1)/(len(y)+2))
+    ansNo=math.log2((len(badList)+1)/(len(y)+2))
     for i in range(len(single)):
         ansYes+=math.log2(P(i,single[i],'是'))
         ansNo+=math.log2(P(i,single[i],'否'))
